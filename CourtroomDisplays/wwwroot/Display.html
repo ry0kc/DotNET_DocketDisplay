@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courtroom Display</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Cabin:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Figtree:wght@400;500;600;700;800&family=Hind:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Karla:wght@400;500;700&family=Lato:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Mulish:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;600;700;800&family=Open+Sans:wght@400;600;700;800&family=Public+Sans:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&family=Source+Sans+3:wght@400;500;600;700;800&family=Urbanist:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="restyle.css">
+</head>
+<body>
+    <header>
+		<div class="demoControls">
+			<button id="themeButton" type="button">Theme: Classic</button>
+			<button id="fontToggle" type="button">Font: Default,Times</button>
+		</div>
+        <div class="first-row">
+            <div class="column1">
+                <img src="CirLogo.png" alt="Court Logo">
+            </div>
+            <div class="column2">
+                <h1>16th Judicial Circuit<br /> of Missouri</h1>
+                <h2 id="divLabel"></h2>
+            </div>
+            <div class="column3">
+                <p>
+                    <span id="date"></span><span>,</span>
+                    <span id="time"></span><br>
+					<span id="scheduleStatus"></span>
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+        <div id="message"></div>
+        <table id="courtTable">
+			<thead>
+				<tr id="headerRow">
+					<th id="divisionHeader" style="display:none;">Division</th>
+					<th>Case ID</th>
+					<th>Style</th>
+					<th>Time</th>
+				</tr>
+			</thead>
+            <tbody></tbody>
+        </table>
+		<div id="crmView" style="display:none;">
+
+			<div id="crmHeaders">
+				<div class="crmHeader">Division 6 - A</div>
+				<div class="crmHeader">Division 27 - B</div>
+			</div>
+
+			<div id="crmScrollArea">
+
+				<div id="crmColumns">
+
+					<div id="crmScroll6" class="crmScroll"></div>
+
+					<div id="crmScroll27" class="crmScroll"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+		<div id="caseDisclaimer">
+			Cases set for initial appearance are often scheduled day of and may not be included on this screen.
+			If you have questions, please contact the division staff.
+		</div>
+    </div>
+    </main>
+
+<script>
+window.COURT_DIV = new URLSearchParams(window.location.search).get('div') || '';
+window.COURT_LAYOUT = new URLSearchParams(window.location.search).get('layout') || 'table';
+window.COURT_SIZE = new URLSearchParams(window.location.search).get("size") || "auto";
+</script>
+    <script src="main.js"></script>
+	<link id="theme-stylesheet" rel="stylesheet" href="restyle.css">
+
+
+</body>
+</html>

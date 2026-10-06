@@ -1,0 +1,6 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Published application output
+/publish/
